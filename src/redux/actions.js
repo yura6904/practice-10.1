@@ -1,0 +1,16 @@
+export const SET_USER_TEXT = 'SET_USER_TEXT'
+export const SET_USER_PRICE = 'SET_USER_PRICE'
+export const EDIT_ELEMENT = 'EDIT_ELEMENT'
+export const ADD_ELEMENT = 'ADD_ELEMENT'
+export const EDIT_ELEMENT_CLICK = 'EDIT_ELEMENT_CLICK'
+export const DELETE_ITEM = 'DELETE_ITEM'
+
+
+export default {
+    SET_USER_TEXT,
+    SET_USER_PRICE,
+    EDIT_ELEMENT,
+    ADD_ELEMENT,
+    EDIT_ELEMENT_CLICK,
+    DELETE_ITEM
+}
