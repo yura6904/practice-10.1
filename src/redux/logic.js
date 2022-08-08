@@ -10,7 +10,8 @@ export const addNewElement = (el, state) => {
 
 export const editElement = (el, state) => {
     let temp = state
-    temp[el.id] = {
+    let index = findItemIndex(el, state)
+    temp[index] = {
         id: el.id,
         text: el.text,
         price: el.price,
@@ -31,6 +32,20 @@ export const editElementClick = (el, state) => {
 
 export const deleteElement = (elId, state) => {
     let temp = state
-    temp.splice(elId, 1)
+    let index = 0
+    for (let i = 0; i < state.length; i++) {
+        if (state[i].id === elId) {
+            index = i
+            break
+        }
+    }
+    temp.splice(index, 1)
     return temp
+}
+
+const findItemIndex = (el, state) => {
+    for (let i = 0; i < state.length; i++) {
+        if (state[i].id === el.id)
+        return i
+    }
 }
