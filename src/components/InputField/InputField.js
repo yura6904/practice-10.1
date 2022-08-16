@@ -1,4 +1,3 @@
-
 function InputField(props) {
 
     return (
@@ -8,36 +7,9 @@ function InputField(props) {
             <input className="price-of-service" type='number' value={props.editData.price}
                 onChange={(e)=>{props.onChangeEvent('price', e.target.value)}} />
                 
-            <button
-                onClick={() => {
-                    if (props.editData.visible) {
-                        props.editItem({
-                            id: props.editData.id,
-                            text: props.editData.text,
-                            price: props.editData.price,
-                            visible: false
-                        })
-                        props.editItemClick({
-                            id: '',
-                            text: '',
-                            price: '',
-                            visible: false
-                        })
-                    }
-                    else {
-                        props.addItem({text: props.editData.text, price: (props.editData.price-0)})
-                    }
-                }}>
-            Сохранить</button>
+            <button onClick={() => {props.editHandler()}}>Сохранить</button>
             <button className={props.editData.visible ? 'visible' : 'hidden'}
-                onClick={() => {
-                    props.editItemClick({
-                        id: '',
-                        text: '',
-                        price: '',
-                        visible: false
-                    })
-                }}>
+                onClick={() => {props.cancelHandler()}}>
             Отмена</button>
         </div>
     );
