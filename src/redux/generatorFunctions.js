@@ -14,10 +14,10 @@ export const editElementClick = (el, state) => {
     }
   }
 
-export const addElement = (elId) => {
+export const addElement = (el) => {
   return {
     type: ADD_ELEMENT,
-    elId
+    el
   }
 }
 
