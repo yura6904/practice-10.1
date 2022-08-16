@@ -36,12 +36,39 @@ function App() {
   const deleteItemClick = (elId) => {
     dispatch(deleteItem(elId))
   }
+  const editHandler = () => {
+    if (editDataStore.visible) {
+      editItem({
+          id: editDataStore.id,
+          text: editDataStore.text,
+          price: editDataStore.price,
+          visible: false
+      })
+      editItemClick({
+          id: '',
+          text: '',
+          price: '',
+          visible: false
+      })
+    }
+    else {
+        addItem({text: editDataStore.text, price: (editDataStore.price-0)})
+    }
+  }
+  const cancelHandler = () => {
+    editItemClick({
+      id: '',
+      text: '',
+      price: '',
+      visible: false
+    })
+  }
 
   return (
     <div className="App">
       <InputField editData={editDataStore} onChangeEvent={onChangeEvent}
         addItem={addItem} editItemClick={editItemClick}
-        editItem={editItem}/>
+        editItem={editItem} editHandler={editHandler} cancelHandler={cancelHandler}/>
         <List elements={dataStore}>
           {elements => elements?.map((e, id) => 
         (<ListElement element={e} key={id} editData={editDataStore}
